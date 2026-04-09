@@ -1,4 +1,4 @@
-if(process.env_NODE_ENV != "production"){
+if(process.env.NODE_ENV != "production"){
     require("dotenv").config();
 }
 
@@ -27,7 +27,6 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
 
-// const MONGO_URL = "mongodb://127.0.0.1:27017/CozyCorner";
 const dbUrl = process.env.ATLASDB_URL;
 
 
