@@ -28,6 +28,7 @@ const User = require("./models/user.js");
 
 
 const dbUrl = process.env.ATLASDB_URL;
+console.log("DB URL:", dbUrl);
 
 
 main()
@@ -55,7 +56,7 @@ app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 
-const store = new MongoStore({
+const store = MongoStore.create({
     mongoUrl: dbUrl,
     crypto:{
         secret: process.env.SECRET,    
