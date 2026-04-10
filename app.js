@@ -14,7 +14,7 @@ const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 
 const session = require("express-session");
-const { MongoStore }= require("connect-mongo"); 
+const MongoStore = require("connect-mongo"); 
 
 const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
@@ -63,7 +63,7 @@ const store = MongoStore.create({
     touchAfter: 24*3600,
 });
 
-store.on("error", ()=>{
+store.on("error", (err)=>{
     console.log("ERROR IN MONGO SESSION STORE", err); 
 });
 
