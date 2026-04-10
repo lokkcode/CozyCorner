@@ -55,7 +55,7 @@ app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 
-const store = MongoStore.create({
+const store = new MongoStore({
     mongoUrl: dbUrl,
     crypto:{
         secret: process.env.SECRET,    
@@ -143,8 +143,9 @@ app.use((err, req, res, next)=>{
     // res.status(statusCode).send(message);
 });
 
+const PORT = process.env.PORT || 8000;
 
-app.listen(8000, ()=>{
-    console.log("app is listening to port : 8000 ");
+app.listen(PORT, ()=>{
+    console.log(`app is listening to port : ${PORT} `);
 });
 
