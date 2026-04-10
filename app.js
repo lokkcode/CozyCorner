@@ -28,7 +28,6 @@ const User = require("./models/user.js");
 
 
 const dbUrl = process.env.ATLASDB_URL;
-console.log("DB URL:", dbUrl);
 
 
 main()
