@@ -21,7 +21,7 @@ module.exports.signup = async (req,res,next)=>{
         
     } catch(e){
         req.flash("error", e.message);
-        res.redirect("/signup");
+        return res.redirect("/signup");
     }
 };
 
@@ -35,7 +35,7 @@ module.exports.login = async (req,res)=>{   //passport check krega either user e
         res.redirect(redirectUrl);
 };
 
-module.exports.logout = (req,res)=>{
+module.exports.logout = (req,res,next)=>{
     req.logout((err)=>{ 
         if(err){
             return next(err)
